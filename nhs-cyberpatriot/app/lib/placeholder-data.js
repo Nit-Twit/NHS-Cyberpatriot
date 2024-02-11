@@ -1,71 +1,63 @@
 const users = [
   {
-    id: "0",
     username: "Cyber Admin",
     name: "Webmaster",
     email: "nhsjrotccyber@gmail.com",
-    password: "Password Will Go HEre lol",
-    permissions: [],
+    password: "nh$jR07(",
+    permissions: ["ADMINISTRATOR"],
     title: "Webmaster - Not affiliated with cyberpatriot",
   },
   {
-    id: "1",
-    username: "Example Member",
-    name: "Fake Member 1",
+    username: "Test Member",
+    name: "Test Member 1",
     email: "fake@member.com",
     password: "1234567",
-    permissions: [],
-    title: "Webmaster - Not affiliated with cyberpatriot",
+    permissions: ["USER"],
+    title: "Test Account - Not affiliated with cyberpatriot",
   },
 ];
 
-const study_matierals = {
-  win: [
-    {
-      title: "Study guide #1",
-      url: "https://www.uscyberpatriot.org/competition/training-materials",
-      id: 1,
-    },
-  ],
-  linux: [
-    {
-      title: "Study guide #1",
-      url: "https://www.uscyberpatriot.org/competition/training-materials",
-      id: 1,
-    },
-  ],
-  cisco: [
-    {
-      title: "Study guide #1",
-      url: "https://www.uscyberpatriot.org/competition/training-materials",
-      id: 1,
-    },
-  ],
-};
+const study_materials = [
+  {
+    category: "win",
+    title: "Study guide #1",
+    url: "https://www.uscyberpatriot.org/competition/training-materials",
+  },
+  {
+    category: "linux",
+    title: "Study guide #1",
+    url: "https://www.uscyberpatriot.org/competition/training-materials",
+  },
+  {
+    category: "cisco",
+    title: "Study guide #1",
+    url: "https://www.uscyberpatriot.org/competition/training-materials",
+  },
+];
 
-const checklists = {
-  win: [
-    {
-      id: 1,
-      title: "Ponkio / Cyberpatriot on GitHub",
-      url: "https://github.com/ponkio/CyberPatriot",
-      date: "2-9-2024",
-    },
-  ],
-  linux: [
-    {
-      id: 1,
-      title: "Ponkio / Cyberpatriot on GitHub",
-      url: "https://github.com/ponkio/CyberPatriot",
-      date: "2-9-2024",
-    },
-  ],
-  cisco: [
-    {
-      id: 1,
-      title: "Cyberpatriot official Cisco training",
-      url: "https://www.uscyberpatriot.org/competition/training-materials/cisco",
-      date: "2-9-2024",
-    },
-  ],
+const checklists = [
+  {
+    category: "win",
+    title: "Ponkio / Cyberpatriot on GitHub",
+    url: "https://github.com/ponkio/CyberPatriot",
+    date: "2-9-2024",
+  },
+  {
+    category: "linux",
+    title: "Ponkio / Cyberpatriot on GitHub",
+    url: "https://github.com/ponkio/CyberPatriot",
+    date: "2-9-2024",
+  },
+  {
+    category: "cisco",
+    title: "Cyberpatriot official Cisco training",
+    url: "https://www.uscyberpatriot.org/competition/training-materials/cisco",
+    date: "2-9-2024",
+  },
+]
+
+module.exports = {
+  users,
+  study_materials,
+  checklists,
 };
