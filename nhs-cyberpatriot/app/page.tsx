@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 export default async function Page() {
   const searchParams = useSearchParams();
   const user = searchParams.get("user");
-  const { rows } = await sql`SELECT * from users`;
+  const { rows } = await sql`SELECT * from users ORDER BY id`;
 
   return (
     <div>

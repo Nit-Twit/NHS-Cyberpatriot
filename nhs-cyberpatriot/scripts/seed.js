@@ -3,6 +3,7 @@ const {
   users,
   checklists,
   study_materials,
+  whitelist
 } = require("../app/lib/placeholder-data");
 const bcrypt = require("bcrypt");
 
@@ -36,6 +37,36 @@ async function seedUsers(client) {
     return {
       usersTable,
       users: insertedUsers,
+    };
+  } catch (error) {
+    console.error("Error seeding users:", error);
+    throw error;
+  }
+}
+
+async function seedWhitelist(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    const whitelistTable = await client.sql`
+            CREATE TABLE IF NOT EXISTS whitelist (
+              email TEXT NOT NULL UNIQUE
+            );
+        `;
+
+    console.log(`created users table`);
+    const insertedWhitelist = await Promise.all(
+      whitelist.map(async (email) => {
+        return client.sql`
+                INSERT INTO whitelist (email)
+                VALUES (${email.email})
+              `;
+      })
+    );
+    console.log(`Seeded ${insertedWhitelist.length} whitelist`);
+
+    return {
+      whitelistTable,
+      whitelist: insertedWhitelist,
     };
   } catch (error) {
     console.error("Error seeding users:", error);
@@ -114,6 +145,7 @@ async function seedChecklists(client) {
     await seedUsers(client);
     await seedStudy(client);
     await seedChecklists(client);
+    await seedWhitelist(client)
   
     await client.end();
   }

@@ -17,6 +17,10 @@ const users = [
   },
 ];
 
+const whitelist = [
+  {email: 'ebelcher143@gmail.com'},
+]
+
 const study_materials = [
   {
     category: "win",
@@ -60,4 +64,5 @@ module.exports = {
   users,
   study_materials,
   checklists,
+  whitelist
 };
